@@ -1,9 +1,9 @@
 import { describe, expect, it } from "vitest"
 
 class MorningRoutine {
-  private currentTime?: Date
+  private currentTime: Date
 
-  private constructor(currentTime?: Date) {
+  private constructor(currentTime: Date) {
     this.currentTime = currentTime
   }
 
