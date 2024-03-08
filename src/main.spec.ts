@@ -21,8 +21,9 @@ class MorningRoutine {
 }
 
 describe("MorningRoutine", () => {
+  const today = new Date()
   it("when 06:30 I should do exercise", () => {
-    const morningRoutine = MorningRoutine.createFromDate(new Date("2024-3-8 06:30:00"))
+    const morningRoutine = MorningRoutine.createFromDate(new Date(today.setHours(6, 30)))
 
     const whatShouldIDo = morningRoutine.whatShouldIDoNow()
 
@@ -30,7 +31,7 @@ describe("MorningRoutine", () => {
   })
 
   it("when 07:15 I should read", () => {
-    const morningRoutine = MorningRoutine.createFromDate(new Date("2024-3-8 07:15:00"))
+    const morningRoutine = MorningRoutine.createFromDate(new Date(today.setHours(7, 15)))
 
     const whatShouldIDo = morningRoutine.whatShouldIDoNow()
 
@@ -38,7 +39,7 @@ describe("MorningRoutine", () => {
   })
 
   it("when 07:45 I should study", () => {
-    const morningRoutine = MorningRoutine.createFromDate(new Date("2024-3-8 07:45:00"))
+    const morningRoutine = MorningRoutine.createFromDate(new Date(today.setHours(7, 45)))
 
     const whatShouldIDo = morningRoutine.whatShouldIDoNow()
 
@@ -46,7 +47,8 @@ describe("MorningRoutine", () => {
   })
 
   it("when 06:30 tomorrow I should do exercise", () => {
-    const morningRoutine = MorningRoutine.createFromDate(new Date("2024-3-9 06:30:00"))
+    const tomorrow = new Date(today.setDate(today.getDate() + 1))
+    const morningRoutine = MorningRoutine.createFromDate(new Date(tomorrow.setHours(6, 30)))
 
     const whatShouldIDo = morningRoutine.whatShouldIDoNow()
 
