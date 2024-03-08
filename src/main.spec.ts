@@ -12,10 +12,10 @@ class MorningRoutine {
   }
 
   whatShouldIDoNow(): string {
-    const currentTime = this.currentTime.getTime();
+    const currentTime = this.currentTime.getTime()
 
-    if (currentTime > new Date("2024-3-8 07:30:00").getTime()) return "Study"
-    if (currentTime > new Date("2024-3-8 07:00:00").getTime()) return "Read"
+    if (currentTime > new Date(this.currentTime.setHours(7, 30)).getTime()) return "Study"
+    if (currentTime > new Date(this.currentTime.setHours(7, 0)).getTime()) return "Read"
     return "Do exercise"
   }
 }
