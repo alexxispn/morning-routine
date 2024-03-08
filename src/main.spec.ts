@@ -1,10 +1,18 @@
 import { describe, it, expect } from "vitest"
-import { myFunction } from "./main.js"
 
-describe("Default test", () => {
-  it("should work", () => {
-    const result = myFunction()
+class MorningRoutine {
 
-    expect(result).toBe(true)
+  whatShouldIDoNow(): string {
+    return ""
+  }
+}
+
+describe("MorningRoutine", () => {
+  it("when 06:30 I should do exercise", () => {
+    const morningRoutine = new MorningRoutine()
+
+    const whatShouldIDo = morningRoutine.whatShouldIDoNow()
+
+    expect(whatShouldIDo).toBe("Do exercise")
   })
 })
