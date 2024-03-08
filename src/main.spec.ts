@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest"
 class MorningRoutine {
   private currentTime?: Date
 
-  constructor(currentTime?: Date) {
+  private constructor(currentTime?: Date) {
     this.currentTime = currentTime
   }
 
@@ -13,13 +13,14 @@ class MorningRoutine {
 
   whatShouldIDoNow(): string {
     if (!this.currentTime) return "Do exercise"
-    return "Read"
+    if (this.currentTime?.getTime() > new Date("2024-3-8 07:00:00").getTime()) return "Read"
+    return "Do exercise"
   }
 }
 
 describe("MorningRoutine", () => {
   it("when 06:30 I should do exercise", () => {
-    const morningRoutine = new MorningRoutine()
+    const morningRoutine = MorningRoutine.createFromDate(new Date("2024-3-8 06:30:00"))
 
     const whatShouldIDo = morningRoutine.whatShouldIDoNow()
 
