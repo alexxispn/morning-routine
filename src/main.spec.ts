@@ -1,8 +1,19 @@
-import { describe, it, expect } from "vitest"
+import { describe, expect, it } from "vitest"
 
 class MorningRoutine {
+  private currentTime?: Date
+
+  constructor(currentTime?: Date) {
+    this.currentTime = currentTime
+  }
+
+  static createFromDate(currentTime: Date) {
+    return new MorningRoutine(currentTime)
+  }
+
   whatShouldIDoNow(): string {
-    return "Do exercise"
+    if (!this.currentTime) return "Do exercise"
+    return "Read"
   }
 }
 
@@ -16,7 +27,7 @@ describe("MorningRoutine", () => {
   })
 
   it("when 07:15 I should read", () => {
-    const morningRoutine = new MorningRoutine()
+    const morningRoutine = MorningRoutine.createFromDate(new Date("2024-3-8 07:15:00"))
 
     const whatShouldIDo = morningRoutine.whatShouldIDoNow()
 
