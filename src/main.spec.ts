@@ -1,9 +1,8 @@
 import { describe, it, expect } from "vitest"
 
 class MorningRoutine {
-
   whatShouldIDoNow(): string {
-    return ""
+    return "Do exercise"
   }
 }
 
