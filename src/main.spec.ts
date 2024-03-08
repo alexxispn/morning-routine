@@ -54,4 +54,12 @@ describe("MorningRoutine", () => {
 
     expect(whatShouldIDo).toBe("Do exercise")
   })
+
+  it("when 08:30 I should Have breakfast", () => {
+    const morningRoutine = MorningRoutine.createFromDate(new Date(today.setHours(8, 30)))
+
+    const whatShouldIDo = morningRoutine.whatShouldIDoNow()
+
+    expect(whatShouldIDo).toBe("Have breakfast")
+  })
 })
