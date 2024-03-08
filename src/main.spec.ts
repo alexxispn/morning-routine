@@ -14,6 +14,7 @@ class MorningRoutine {
   whatShouldIDoNow(): string {
     const currentTime = this.currentTime.getTime()
 
+    if (currentTime > new Date(this.currentTime.setHours(8, 0)).getTime()) return "Have breakfast"
     if (currentTime > new Date(this.currentTime.setHours(7, 30)).getTime()) return "Study"
     if (currentTime > new Date(this.currentTime.setHours(7, 0)).getTime()) return "Read"
     return "Do exercise"
